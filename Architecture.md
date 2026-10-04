@@ -183,12 +183,11 @@ portfolio-website/
 │   ├── lib/                        # Utilities and configurations
 │   │   ├── db.ts                   # MongoDB connection
 │   │   ├── cloudinary.ts           # Cloudinary configuration
-│   │   ├── auth.ts                 # NextAuth configuration
-│   │   ├── validators.ts           # Input validation schemas
+│   │   ├── session.ts              # Session management
+│   │   ├── validators.ts           # Input validation schemas (Zod)
 │   │   └── utils.ts                # Helper functions
 │   │
 │   ├── models/                     # Mongoose models
-│   │   ├── User.ts                 # Admin user model
 │   │   ├── Project.ts              # Project model
 │   │   └── Settings.ts             # Site settings model
 │   │
@@ -208,19 +207,6 @@ portfolio-website/
 ---
 
 ## Database Schema
-
-### Users Collection
-```javascript
-{
-  _id: ObjectId,
-  email: String,           // Admin email
-  password: String,        // Hashed password
-  name: String,            // Admin name
-  role: String,            // "admin"
-  createdAt: Date,
-  updatedAt: Date
-}
-```
 
 ### Projects Collection
 ```javascript
@@ -285,19 +271,17 @@ portfolio-website/
 # MongoDB
 MONGODB_URI=mongodb://localhost:27017/portfolio
 
-# NextAuth
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your-secret-key-generate-this
-
 # Cloudinary
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your-cloud-name
 CLOUDINARY_API_KEY=your-api-key
 CLOUDINARY_API_SECRET=your-api-secret
 
-# Admin (for initial setup)
+# Admin Credentials (stored in ENV)
 ADMIN_EMAIL=admin@example.com
-ADMIN_PASSWORD=change-this-password
+ADMIN_PASSWORD=your-secure-password
 ```
+
+**Note:** Admin credentials are stored directly in environment variables (single admin only).
 
 ---
 
