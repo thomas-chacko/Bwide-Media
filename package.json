@@ -6,12 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "docker:start": "docker-compose up -d",
+    "docker:stop": "docker-compose down",
+    "docker:logs": "docker-compose logs -f mongodb",
+    "docker:reset": "docker-compose down -v",
+    "docker:prod": "docker-compose -f docker-compose.prod.yml up -d",
+    "docker:prod:stop": "docker-compose -f docker-compose.prod.yml down"
   },
   "dependencies": {
+    "cloudinary": "^2.5.1",
+    "mongoose": "^8.8.4",
     "next": "16.3.8",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
