@@ -18,7 +18,7 @@ export default function ContactPage() {
           { name: "Contact", href: "/contact" },
         ]}
       />
-      <div className="pt-24 md:pt-32">
+      <div>
         <ContactSection />
       </div>
     </>

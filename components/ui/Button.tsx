@@ -15,7 +15,7 @@ type ButtonProps = {
 };
 
 const baseStyles =
-  "inline-flex items-center justify-center font-semibold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2";
+  "inline-flex items-center justify-center font-semibold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 cursor-pointer disabled:cursor-not-allowed";
 
 const variantStyles = {
   primary:

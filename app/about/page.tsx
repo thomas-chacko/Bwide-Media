@@ -23,7 +23,7 @@ export default function AboutPage() {
           { name: "About", href: "/about" },
         ]}
       />
-      <div className="pt-24 md:pt-32">
+      <div>
         <About />
         <Process />
         <WhyBwide />

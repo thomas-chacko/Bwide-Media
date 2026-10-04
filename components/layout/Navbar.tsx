@@ -87,7 +87,7 @@ export function Navbar() {
 
           {/* Mobile menu toggle */}
           <button
-            className="relative z-50 flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--glass-border)] bg-glass md:hidden"
+            className="relative z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-[var(--glass-border)] bg-glass md:hidden"
             onClick={() => setMobileOpen((o) => !o)}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"

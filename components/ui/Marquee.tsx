@@ -32,14 +32,14 @@ export function Marquee({
       aria-hidden="true"
     >
       <div
-        className="animate-marquee flex whitespace-nowrap"
+        className="animate-marquee flex w-max whitespace-nowrap"
         style={{ animationDuration: speedMap[speed] }}
       >
-        {/* Duplicate content for seamless loop */}
-        {[0, 1].map((i) => (
+        {/* Duplicate content enough times to ensure it covers wide screens and loops seamlessly */}
+        {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
           <span
             key={i}
-            className="mr-8 font-display text-sm font-medium uppercase tracking-[0.2em] text-text-muted md:text-base"
+            className="pr-8 font-display text-sm font-medium uppercase tracking-[0.2em] text-text-muted md:text-base"
           >
             {content} {separator}{" "}
           </span>

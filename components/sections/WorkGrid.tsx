@@ -39,7 +39,7 @@ export function WorkGrid() {
               aria-selected={activeCategory === "All"}
               onClick={() => setActiveCategory("All")}
               className={cn(
-                "rounded-full border px-5 py-2 text-xs font-medium uppercase tracking-wider transition-all duration-200",
+                "cursor-pointer rounded-full border px-5 py-2 text-xs font-medium uppercase tracking-wider transition-all duration-200",
                 activeCategory === "All"
                   ? "border-primary/30 bg-primary/10 text-primary-soft"
                   : "border-[var(--glass-border)] bg-glass text-text-muted hover:border-[var(--glass-border-hover)] hover:text-text"
@@ -54,7 +54,7 @@ export function WorkGrid() {
                 aria-selected={activeCategory === cat.name}
                 onClick={() => setActiveCategory(cat.name)}
                 className={cn(
-                  "rounded-full border px-5 py-2 text-xs font-medium uppercase tracking-wider transition-all duration-200",
+                  "cursor-pointer rounded-full border px-5 py-2 text-xs font-medium uppercase tracking-wider transition-all duration-200",
                   activeCategory === cat.name
                     ? "border-primary/30 bg-primary/10 text-primary-soft"
                     : "border-[var(--glass-border)] bg-glass text-text-muted hover:border-[var(--glass-border-hover)] hover:text-text"

@@ -100,7 +100,7 @@ export function ContactForm() {
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="mt-6 text-sm font-medium text-primary-soft transition-colors hover:text-primary"
+          className="mt-6 cursor-pointer text-sm font-medium text-primary-soft transition-colors hover:text-primary"
         >
           Send another enquiry
         </button>
@@ -264,9 +264,9 @@ export function ContactForm() {
           className={cn(inputClasses, "appearance-none")}
           {...register("budget")}
         >
-          <option value="">Select a range</option>
+          <option value="" className="bg-[#0f0b1d] text-text">Select a range</option>
           {budgetRanges.map((range) => (
-            <option key={range} value={range}>
+            <option key={range} value={range} className="bg-[#0f0b1d] text-text">
               {range}
             </option>
           ))}
@@ -308,7 +308,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_0_24px_var(--primary-glow)] disabled:pointer-events-none disabled:opacity-50"
+        className="group inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_0_24px_var(--primary-glow)] disabled:pointer-events-none disabled:opacity-50"
       >
         {status === "submitting" ? (
           <>

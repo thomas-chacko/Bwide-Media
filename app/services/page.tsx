@@ -28,7 +28,7 @@ export default function ServicesPage() {
       />
       <FaqJsonLd faqs={faqItems} />
 
-      <div className="pt-24 md:pt-32">
+      <div>
         <Services />
         <Process />
         <WhyBwide />
