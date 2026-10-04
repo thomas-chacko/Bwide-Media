@@ -377,18 +377,19 @@ cloudinary.url('image-id', {
 
 ```
 1. Admin navigates to /login
-2. Enters credentials
-3. NextAuth validates against MongoDB
-4. Creates session with JWT
-5. Middleware protects /admin routes
-6. Session persists across requests
-7. Logout clears session
+2. Enters email and password
+3. API checks credentials against ENV variables
+4. If valid, creates server-side session
+5. Session stored in HTTP-only cookie
+6. Middleware protects /admin routes by checking session
+7. Logout clears session cookie
 ```
 
 ### Protected Routes
-- All `/admin/*` routes require authentication
+- All `/admin/*` routes require valid session
 - Middleware checks session before rendering
 - Unauthorized users redirected to `/login`
+- No database queries for authentication (ENV-based)
 
 ---
 
