@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import connectDB from "@/lib/db";
+import Enquiry from "@/models/Enquiry";
 
 const contactMethods = ["Phone", "WhatsApp", "Email"] as const;
 
@@ -17,6 +19,8 @@ const enquirySchema = z.object({
 
 export async function POST(request: Request) {
   try {
+    await connectDB();
+
     const body = await request.json();
     const data = enquirySchema.parse(body);
 
@@ -25,17 +29,19 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true }); // silently reject
     }
 
-    // TODO: connect email/CRM — for now just log the enquiry
-    console.log("📩 New enquiry received:", {
+    // Save to database
+    const enquiry = await Enquiry.create({
       name: data.name,
       company: data.company,
       phone: data.phone,
       email: data.email,
       services: data.services,
+      message: data.message,
       budget: data.budget,
       contactMethod: data.contactMethod,
-      messageLength: data.message.length,
     });
+
+    console.log("📩 New enquiry saved:", enquiry._id);
 
     return NextResponse.json({
       success: true,
@@ -49,6 +55,7 @@ export async function POST(request: Request) {
       );
     }
 
+    console.error("Enquiry submission error:", error);
     return NextResponse.json(
       { success: false, message: "Something went wrong." },
       { status: 500 }

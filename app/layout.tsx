@@ -63,14 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <OrganizationJsonLd />
         <WebSiteJsonLd />
 
-        <Navbar />
-
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-
-        <Footer />
-        <WhatsAppButton />
+        {children}
       </body>
     </html>
   );
